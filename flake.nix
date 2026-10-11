@@ -105,7 +105,7 @@
                     forceSSL = true;
                     enableACME = true;
                     locations."/" = {
-                      proxyPass = "http://${cfg.listenAddress}:8080";
+                      proxyPass = "http://${cfg.listenAddress}:${builtins.toString cfg.port}";
                       extraConfig = ''
                         proxy_set_header        Host $host;
                         proxy_set_header        X-Real-IP $proxy_protocol_addr;
